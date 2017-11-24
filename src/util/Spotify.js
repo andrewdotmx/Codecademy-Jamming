@@ -73,6 +73,10 @@ const Spotify = {
     }
 
     const accessToken = Spotify.getAccessToken();
+    if(!accessToken) {
+      return Promise.reject(new Error("Unable to SAVE PLAYLIST :: No access token yet."));
+    }
+
     const headers = { 'Authorization': `Bearer ${accessToken}` }
     let userID;
     let playlistID;
